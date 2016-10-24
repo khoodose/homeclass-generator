@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="gb2312">
+<title>??</title>
+</head>
+
+<body>
+  <canvas id = "myCanvas" width = '500' height = '500'>Canvas??мォ</canvas>
+<script>
+    var myCanvas = document.getElementById("myCanvas");
+    var context =  myCanvas.getContext("2d");
+        function drawPath(x, y, n, r)
+        {
+                var i,ang;
+                ang = Math.PI*2/n //臂?à
+                context.save();//玂??
+                context.fillStyle ='rgba(255,0,0,.3)';//恶?︹硓
+                context.strokeStyle ='hsl(120,50%,50%)';//恶?︹
+                context.lineWidth = 1;//?竚??
+                context.translate(x, y);//?簿x,y?璶??いみ
+                context.moveTo(0, -r);//誹いみr禯置???
+                context.beginPath();
+                for(i = 0;i < n; i ++)
+                {
+                        context.rotate(ang)//臂?
+                        context.lineTo(0, -r);//誹いみr禯置???
+                }
+                context.closePath();
+                context.stroke();
+                context.fill();
+                context.restore();//﹍??
+        }
+        drawPath(100, 100, 3, 40)//100,100?????40?
+        drawPath(200, 100, 4, 40)//200,100?????40à
+        drawPath(300, 100, 5, 40)//300,100?????40き?
+        drawPath(100, 200, 6, 40)//100,200?????40せ?
+        drawPath(200, 200, 7, 40)//100,200?????40?
+        drawPath(300, 200, 7, 40)//300,200?????40?
+</script>
+</body>
+</html>
